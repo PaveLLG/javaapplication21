@@ -17,14 +17,12 @@ public class JavaApplication21 {
 
         for(int i = 0; i < threads.length; i++ ){
             threads[i] = new Thread(runner);
-            threads
+            threads[i].start();
 
         }
 
-        for(Thread thread: threads){
-            thread = new Thread(runner);
-            thread.start();
-            thread.join();
+        for(int i = 0; i< threads.length;i++){
+           threads[i].join();
         }
 
 
