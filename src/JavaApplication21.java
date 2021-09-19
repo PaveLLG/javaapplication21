@@ -4,11 +4,17 @@ public class JavaApplication21 {
 
     public static void main(String[] args) throws InterruptedException {
 
+
+        Object monitor = new Object();
+
+
         Runnable runner = new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 1000; i++ ){
-                    x++;
+                    synchronized (monitor) {
+                        x++;
+                    }
                 }
             }
         };
